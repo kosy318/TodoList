@@ -9,7 +9,7 @@ public interface NoticeMapper {
 	
 	List<Notice> allList();// 모든 공지 목록
 	Notice findByNum(String num); // 번호로 검색
-	List<Notice> findByContent(String word);
+	List<Notice> findByTitle(String word);
 	
 	boolean add(Notice notice); // 공지 등록
 	boolean modify(Notice notice);// 공지 수정

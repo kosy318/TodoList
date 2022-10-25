@@ -11,7 +11,7 @@ public interface NoticeService {
 	Notice readOne(String num);
 	
 	// 검색창에 검색
-	List<Notice> findByContent(String word) throws Exception; // 내용으로 like 검색
+	List<Notice> findByTitle(String word) throws Exception; // 제목으로 like 검색
 
 	boolean add(Notice notice) throws Exception;// 공지 등록
 	boolean modify(Notice notice) throws Exception;// 공지 내용 수정

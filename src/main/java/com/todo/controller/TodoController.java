@@ -1,6 +1,9 @@
 package com.todo.controller;
 
+import java.util.HashMap;
 import java.util.List;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,8 +21,10 @@ public class TodoController {
 	TodoService service;
 
 	@GetMapping("list")
-	public String allList(Model model) {
-		List<Todo> todoList = service.allList();
+	public String allList(Model model, HttpSession session) throws Exception {
+//		List<Todo> todoList = service.allList();
+		String id = (String) session.getAttribute("id");
+		List<Todo> todoList = service.findById(id);
 		model.addAttribute("todoList", todoList);
 		
 		return "list";
@@ -34,10 +39,15 @@ public class TodoController {
 	}
 	
 	@GetMapping("searchAll")
-	public String searchAll(String search, String word, Model model) throws Exception{
+	public String searchAll(String search, String word, Model model, HttpSession session) throws Exception{
 		List<Todo> todoList = null;
-		if(search.equals("id")) todoList = service.findById(word);
-		else if(search.equals("content")) todoList = service.findByContent(word);
+		String id = (String) session.getAttribute("id");
+		HashMap<String, String> map = new HashMap<>();
+		map.put("word", word);
+		map.put("id", id);
+//		if(search.equals("id")) todoList = service.findById(word);
+		if(search.equals("date")) todoList = service.findByDate(map);
+		else if(search.equals("content")) todoList = service.findByContent(map);
 		model.addAttribute("todoList", todoList);
 		
 		return "list";

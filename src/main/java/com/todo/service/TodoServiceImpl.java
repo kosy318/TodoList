@@ -1,5 +1,6 @@
 package com.todo.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,8 +31,8 @@ public class TodoServiceImpl implements TodoService {
 	}
 
 	@Override
-	public List<Todo> findByContent(String word) throws Exception {
-		return mapper.findByContent(word);
+	public List<Todo> findByContent(HashMap<String, String> map) throws Exception {
+		return mapper.findByContent(map);
 	}
 
 	@Override
@@ -62,6 +63,11 @@ public class TodoServiceImpl implements TodoService {
 	@Override
 	public void deleteAll() throws Exception {
 		mapper.deleteAll();
+	}
+
+	@Override
+	public List<Todo> findByDate(HashMap<String, String> map) throws Exception {
+		return mapper.findByDate(map);
 	}
 
 }

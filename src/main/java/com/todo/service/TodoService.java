@@ -1,5 +1,6 @@
 package com.todo.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import com.todo.vo.Todo;
@@ -12,8 +13,8 @@ public interface TodoService {
 	
 	// 검색창에 검색
 	List<Todo> findById(String word) throws Exception;; // 사용자 id로 검색
-	List<Todo> findByContent(String word) throws Exception; // 내용으로 like 검색
-//	List<Todo> findByDate(String sdate, String edate) throws Exception;// 날짜로 검색
+	List<Todo> findByContent(HashMap<String, String> map) throws Exception;
+	List<Todo> findByDate(HashMap<String, String> map) throws Exception;// 날짜로 검색
 
 	boolean add(Todo todo) throws Exception;// 할일 등록
 	boolean modify(Todo todo) throws Exception;// 할일 내용 수정

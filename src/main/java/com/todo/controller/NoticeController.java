@@ -33,9 +33,9 @@ public class NoticeController {
 		return "notice-read";
 	}
 	
-	@GetMapping("notice-searchAll")
-	public String searchAll(String search, String word, Model model) throws Exception{
-		List<Notice> noticeList = service.findByContent(word);
+	@GetMapping("notice-search")
+	public String search(String word, Model model) throws Exception{
+		List<Notice> noticeList = service.findByTitle(word);
 		model.addAttribute("noticeList", noticeList);
 		
 		return "notice-list";

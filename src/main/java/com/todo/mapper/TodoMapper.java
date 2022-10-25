@@ -1,5 +1,6 @@
 package com.todo.mapper;
 
+import java.util.HashMap;
 import java.util.List;
 
 import com.todo.vo.Todo;
@@ -10,8 +11,8 @@ public interface TodoMapper {
 	List<Todo> allList();// 모든 할일 목록
 	Todo findByNum(String num); // 번호로 검색
 	List<Todo> findById(String word); // 사용자 id로 검색
-	List<Todo> findByContent(String word);
-//	List<Todo> findByDate(String sdate, String edate);// 날짜로 검색
+	List<Todo> findByContent(HashMap<String, String> map);
+	List<Todo> findByDate(HashMap<String, String> map);// 날짜로 검색
 	
 	boolean add(Todo todo);// 할일 등록
 	boolean modify(Todo todo);// 할일 내용 수정

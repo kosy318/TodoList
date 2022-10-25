@@ -4,35 +4,24 @@
 
 <html>
 <head>
-<title>TodoList</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet"
-	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
-<script
-	src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
-<script
-	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-<script
-	src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+<jsp:include page="head.jsp"></jsp:include>
 </head>
 <body>
 	<jsp:include page="nav.jsp" />
 	<div class="container text-center pt-5">
 		<h1>Todo List</h1>
-<!-- 
-		<form action="searchAll" method="get">
-			검 색: <select name="search">
-				<option value="content" selected="selected">내용</option>
-				<option value="id">아이디</option>
-			</select> <input type="text" name="word"> <input type="submit"
-				value="검색">
-		</form>
- -->
-		<div class="text-right">
+		<div class="text-right mb-2">
 			<a href="insert" class="btn btn-info" role="button">할 일 추가</a>&nbsp;&nbsp;
 			<a href="deleteAll" class="btn btn-info" role="button">전체 삭제</a>
 		</div>
+		<form class="form-inline mb-2 float-right" action="searchAll" method="get">
+			<select class="form-control" name="search" id="search" onchange="selectChange()">
+				<option value="content" selected="selected">내용</option>
+				<option value="date">날짜</option>
+			</select>&nbsp;&nbsp; <input id="word" class="form-control mr-sm-2" type="text"
+				name="word">
+			<button class="btn btn-info my-2 my-sm-0" type="submit">검색</button>
+		</form>
 		<br>
 
 		<table class="table">
@@ -73,6 +62,17 @@
 			</tbody>
 		</table>
 	</div>
+	
+	<script>
+		function selectChange(){
+			select = document.querySelector("#search");
+			if(select.value === "date"){
+				document.querySelector("#word").setAttribute("type", "date");
+			}else{
+				document.querySelector("#word").setAttribute("type", "text");
+			}
+		}
+	</script>
 </body>
 </html>
 

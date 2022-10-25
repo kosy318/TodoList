@@ -20,9 +20,17 @@
 	<jsp:include page="nav.jsp" />
 	<div class="container text-center pt-5">
 		<h1>NOTICE</h1>
-		<div class="text-right">
-			<c:if test="${ role ne 'admin' }"><a href="notice-insert" class="btn btn-info" role="button">글쓰기</a></c:if>
+		<div class="text-right mb-2">
+			<c:if test="${ id eq 'admin' }">
+				<a href="notice-insert" class="btn btn-info" role="button">글쓰기</a>
+			</c:if>
 		</div>
+		<form class="form-inline mb-2 float-right" action="notice-search"
+			method="get">
+			<input class="form-control mr-sm-2" type="text"
+				name="word">
+			<button class="btn btn-info my-2 my-sm-0" type="submit">검색</button>
+		</form>
 		<br>
 
 		<table class="table">

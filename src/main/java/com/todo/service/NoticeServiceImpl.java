@@ -33,8 +33,8 @@ public class NoticeServiceImpl implements NoticeService {
 	}
 
 	@Override
-	public List<Notice> findByContent(String word) throws Exception {
-		return mapper.findByContent(word);
+	public List<Notice> findByTitle(String word) throws Exception {
+		return mapper.findByTitle(word);
 	}
 
 	@Override

@@ -24,9 +24,9 @@
 		where num=#{num}
 	</update>
 
-	<select id="findByContent" resultType="Notice">
+	<select id="findByTitle" resultType="Notice">
 		select * from notice
-		where content like concat('%', #{word}, '%')
+		where title like concat('%', #{word}, '%')
 		order by num desc
 	</select>
 	
