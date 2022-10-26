@@ -42,4 +42,9 @@ public class UserController {
 		return "redirect:/";
 	}
 
+	@GetMapping("signup")
+	public String signup() {
+		return "signup";
+	}
+	
 }

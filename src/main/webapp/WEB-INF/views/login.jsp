@@ -18,8 +18,8 @@
 				</label>
 			</div>
 			<button class="btn btn-lg btn-info btn-block" type="submit">로그인</button>
-			<button class="btn btn-lg btn-info btn-block" type="submit"></button>
 		</form>
+			<a href="signup" class="mt-1 btn btn-lg btn-info btn-block" role="button">회원가입</a>
 	</div>
 </body>
 </html>
