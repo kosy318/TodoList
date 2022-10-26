@@ -30,6 +30,7 @@
 			<mapping path="/read"/>
 			<!-- 만약 클라이언트로부터 요청이 insert로 들어오면 -->
 			<mapping path="/insert"/>
+			<mapping path="/qna-insert"/>
 			<mapping path="/delete"/>
 			<mapping path="/modify"/>
 			<!-- 만들어진 객체 중에 누구를 가져다 쓸건지 클래스 이름(첫 글자느 소문자) -->

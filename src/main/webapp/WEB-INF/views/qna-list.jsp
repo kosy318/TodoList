@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <html>
 <head>
@@ -35,6 +36,7 @@
 				<tr>
 					<th>번호</th>
 					<th>제목</th>
+					<th>아이디</th>
 					<th>날짜</th>
 					<th>조회수</th>
 				</tr>
@@ -44,6 +46,7 @@
 					<tr>
 						<td>${ qna.num }</td>
 						<td><a href="qna-read?num=${ qna.num }">${ qna.title }</a></td>
+						<td>${ fn:substring(qna.id, 0, 3) }***</td>
 						<td>${ qna.regdate }</td>
 						<td>${ qna.count }</td>
 					</tr>

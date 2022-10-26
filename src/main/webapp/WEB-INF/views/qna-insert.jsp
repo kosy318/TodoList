@@ -20,6 +20,7 @@
 	<div class="container text-center pt-5">
 		<h1>질문 추가</h1>
 		<form action="qna-insert" method="post">
+			<input type="hidden" id="id" name="id" value=${ user.id }>
 			<div class="form-group text-left">
 				<label for="title">제 목:</label> <input class="form-control"
 					id="title" name="title">

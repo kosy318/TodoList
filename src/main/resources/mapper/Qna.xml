@@ -31,8 +31,8 @@
 	</select>
 	
 	<insert id="add" parameterType="Qna" >
-		insert into qna(title, content, regdate, count)
-		values(#{title}, #{content}, curdate(), 0)
+		insert into qna(title, content, id, regdate, count)
+		values(#{title}, #{content}, #{id}, curdate(), 0)
 	</insert>
 	
 	<update id="modify" parameterType="Qna" >

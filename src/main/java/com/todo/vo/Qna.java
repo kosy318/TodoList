@@ -6,16 +6,18 @@ public class Qna {
 	private String title;
 	private String content;
 	private String answer;
+	private String id;
 	private String regdate;
 	private int count;
 
 	public Qna() {}
-	public Qna(String num, String title, String content, String answer, String regdate, int count) {
+	public Qna(String num, String title, String content, String answer, String id, String regdate, int count) {
 		super();
 		this.num = num;
 		this.title = title;
 		this.content = content;
 		this.answer = answer;
+		this.id = id;
 		this.regdate = regdate;
 		this.count = count;
 	}
@@ -50,6 +52,14 @@ public class Qna {
 	
 	public void setAnswer(String answer) {
 		this.answer = answer;
+	}
+	
+	public String getId() {
+		return id;
+	}
+	
+	public void setId(String id) {
+		this.id = id;
 	}
 	
 	public String getRegdate() {
