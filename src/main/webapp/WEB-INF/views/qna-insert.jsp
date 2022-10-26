@@ -18,8 +18,8 @@
 <BODY>
 	<jsp:include page="nav.jsp" />
 	<div class="container text-center pt-5">
-		<h1>공지 추가</h1>
-		<form action="notice-insert" method="post">
+		<h1>질문 추가</h1>
+		<form action="qna-insert" method="post">
 			<div class="form-group text-left">
 				<label for="title">제 목:</label> <input class="form-control"
 					id="title" name="title">
@@ -30,7 +30,7 @@
 			</div>
 			<button type="submit" class="btn btn-primary">Submit</button>
 		</form>
-		<a href="notice-list">공지 목록</a> <br> <br>
+		<a href="qna-list">qna 목록</a> <br> <br>
 	</div>
 
 </BODY>

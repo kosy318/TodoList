@@ -19,16 +19,13 @@
 <body>
 	<jsp:include page="nav.jsp" />
 	<div class="container text-center pt-5">
-		<h1>NOTICE</h1>
+		<h1>QnA</h1>
 		<div class="text-right mb-2">
-			<c:if test="${ user.id eq 'admin' }">
-				<a href="notice-insert" class="btn btn-info" role="button">글쓰기</a>
-			</c:if>
+			<a href="qna-insert" class="btn btn-info" role="button">글쓰기</a>
 		</div>
-		<form class="form-inline mb-2 float-right" action="notice-search"
+		<form class="form-inline mb-2 float-right" action="qna-search"
 			method="get">
-			<input class="form-control mr-sm-2" type="text"
-				name="word">
+			<input class="form-control mr-sm-2" type="text" name="word">
 			<button class="btn btn-info my-2 my-sm-0" type="submit">검색</button>
 		</form>
 		<br>
@@ -43,12 +40,12 @@
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${ noticeList }" var="notice">
+				<c:forEach items="${ qnaList }" var="qna">
 					<tr>
-						<td>${ notice.num }</td>
-						<td><a href="notice-read?num=${ notice.num }">${ notice.title }</a></td>
-						<td>${ notice.regdate }</td>
-						<td>${ notice.count }</td>
+						<td>${ qna.num }</td>
+						<td><a href="qna-read?num=${ qna.num }">${ qna.title }</a></td>
+						<td>${ qna.regdate }</td>
+						<td>${ qna.count }</td>
 					</tr>
 				</c:forEach>
 			</tbody>

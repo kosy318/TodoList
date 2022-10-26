@@ -19,7 +19,7 @@
 <body>
 	<jsp:include page="nav.jsp" />
 	<div class="container text-center pt-5">
-		<h1>todo no.${ todo.num }</h1>
+		<h1>todo</h1>
 
 		<br>
 		<table class="table table-bordered">
@@ -27,7 +27,7 @@
 				<TH>DONE</TH>
 				<TD>${ todo.done }</TD>
 				<Th>NAME</TH>
-				<TD>${ todo.id }</TD>
+				<TD>${ user.name }</TD>
 			</TR>
 			<TR>
 				<TH>start</TH>

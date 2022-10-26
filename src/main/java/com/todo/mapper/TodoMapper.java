@@ -9,7 +9,7 @@ import com.todo.vo.Todo;
 public interface TodoMapper {
 	
 	List<Todo> allList();// 모든 할일 목록
-	Todo findByNum(String num); // 번호로 검색
+	Todo findByNum(HashMap<String, String> map); // 번호로 검색
 	List<Todo> findById(String word); // 사용자 id로 검색
 	List<Todo> findByContent(HashMap<String, String> map);
 	List<Todo> findByDate(HashMap<String, String> map);// 날짜로 검색

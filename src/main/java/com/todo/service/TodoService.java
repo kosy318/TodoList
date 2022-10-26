@@ -9,7 +9,7 @@ public interface TodoService {
 
 	// 초기화면
 	List<Todo> allList();// 모든 할일 목록(list)
-	Todo findByNum(String num) throws Exception;; // 번호로 검색. 상세화면(read)
+	Todo findByNum(HashMap<String, String> map) throws Exception;; // 번호로 검색. 상세화면(read)
 	
 	// 검색창에 검색
 	List<Todo> findById(String word) throws Exception;; // 사용자 id로 검색

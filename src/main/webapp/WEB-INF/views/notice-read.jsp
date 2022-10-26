@@ -38,7 +38,7 @@
 				<TD COLSPAN=3>${ notice.content }</TD>
 			</TR>
 		</TABLE>
-		<c:if test="${ id eq 'admin' }">
+		<c:if test="${ user.id eq 'admin' }">
 			<a href="notice-modify?num=${ notice.num }">수정하기</a>&nbsp;&nbsp;
 		<a href="notice-delete?num=${ notice.num }">삭제하기</a>&nbsp;&nbsp;
 		</c:if>

@@ -34,8 +34,12 @@ public class TodoController {
 	}
 	
 	@GetMapping("read")
-	public String findByNum(String num, Model model) throws Exception {
-		Todo todo = service.findByNum(num);
+	public String findByNum(String num, Model model, HttpSession session) throws Exception {
+		User user = (User) session.getAttribute("user");
+		HashMap<String, String> map = new HashMap<>();
+		map.put("num", num);
+		map.put("id", user.getId());
+		Todo todo = service.findByNum(map);
 		model.addAttribute("todo", todo);
 		
 		return "read";
@@ -68,8 +72,12 @@ public class TodoController {
 	}
 	
 	@GetMapping("modify")
-	public String modifyForm(String num, Model model) throws Exception{
-		Todo todo = service.findByNum(num);
+	public String modifyForm(String num, Model model, HttpSession session) throws Exception{
+		User user = (User) session.getAttribute("user");
+		HashMap<String, String> map = new HashMap<>();
+		map.put("num", num);
+		map.put("id", user.getId());
+		Todo todo = service.findByNum(map);
 		model.addAttribute("todo", todo);
 		
 		return "modify";

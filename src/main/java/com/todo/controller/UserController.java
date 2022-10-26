@@ -27,9 +27,9 @@ public class UserController {
 	
 	@PostMapping("login")
 	public String login(HttpSession session, User user) {
-		if(service.login(user) != null) {
+		if((user = service.login(user)) != null) {
 			session.setAttribute("user", user);
-			return "list";
+			return "redirect:/list";
 		}
 		
 		return "login";

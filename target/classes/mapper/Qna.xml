@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 이 파일과 매핑되어 실행될 자바 매퍼 파일 정보 -->
+<mapper namespace="com.todo.mapper.QnaMapper">
+
+	<select id="allList" resultType="Qna">
+		select *
+		from qna
+		order by num desc
+	</select>
+	
+	<select id="findByNum" resultType="Qna">
+		select * from qna
+		where num = #{num}
+		order by num desc
+	</select>
+	
+	<update id="countUp">
+		update qna
+		set count = count+1
+		where num=#{num}
+	</update>
+
+	<select id="findByTitle" resultType="Qna">
+		select * from qna
+		where title like concat('%', #{word}, '%')
+		order by num desc
+	</select>
+	
+	<insert id="add" parameterType="Qna" >
+		insert into qna(title, content, regdate, count)
+		values(#{title}, #{content}, curdate(), 0)
+	</insert>
+	
+	<update id="modify" parameterType="Qna" >
+		update qna
+		set content=#{content}, title=#{title}
+		where num=#{num}
+	</update>
+	
+	<delete id="delete">
+		delete from qna
+		where num = #{num}
+	</delete>
+	
+</mapper>

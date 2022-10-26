@@ -45,7 +45,7 @@
 
 				<div class="mb-3">
 					<label for="email">이메일</label> <input type="email"
-						class="form-control" id="email" placeholder="email@example.com">
+						class="form-control" id="email" name="email" placeholder="email@example.com">
 				</div>
 
 				<button class="btn btn-info btn-lg btn-block" type="submit">회원

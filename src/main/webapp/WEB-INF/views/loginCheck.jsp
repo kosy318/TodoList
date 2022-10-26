@@ -9,7 +9,7 @@
 </c:if>
 
 <c:if test="${!empty user}">
-	<span style="color: white">Welcome, <b>${ user.id }</b></span>&nbsp;&nbsp;&nbsp;
+	<span style="color: white">Welcome, <b>${ user.name }(${ user.id })</b></span>&nbsp;&nbsp;&nbsp;
 	<a href="logout" class="btn btn-outline-info" role="button">로그아웃</a>
 </c:if>
 

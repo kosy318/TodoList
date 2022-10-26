@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <html>
 <head>
@@ -9,7 +10,7 @@
 <body>
 	<jsp:include page="nav.jsp" />
 	<div class="container text-center pt-5">
-		<h1>Todo List</h1>
+		<h1>${ user.name }'s Todo List</h1>
 		<div class="text-right mb-2">
 			<a href="insert" class="btn btn-info" role="button">할 일 추가</a>&nbsp;&nbsp;
 			<a href="deleteAll" class="btn btn-info" role="button">전체 삭제</a>
@@ -29,31 +30,29 @@
 				<tr>
 					<th>번호</th>
 					<th>내용</th>
-					<th>아이디</th>
 					<th>날짜</th>
 					<th></th>
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${ todoList }" var="todo">
+				<c:forEach begin="1" end="${ fn:length(todoList) }" var="i">
 					<tr>
-						<td>${ todo.num }</td>
-						<c:if test="${ todo.done eq 'N' }">
-							<td><a href="read?num=${ todo.num }">${ todo.content }</a></td>
+						<td>${ fn:length(todoList) - i + 1 }</td>
+						<c:if test="${ todoList[i-1].done eq 'N' }">
+							<td><a href="read?num=${ todoList[i-1].num }">${ todoList[i-1].content }</a></td>
 						</c:if>
-						<c:if test="${ todo.done eq 'Y' }">
-							<td><a href="read?num=${ todo.num }"><del>${ todo.content }</del></a></td>
+						<c:if test="${ todoList[i-1].done eq 'Y' }">
+							<td><a href="read?num=${ todoList[i-1].num }"><del>${ todoList[i-1].content }</del></a></td>
 						</c:if>
-						<td>${ todo.id }</td>
-						<td>${ todo.sdate }~${ todo.edate }</td>
-						<c:if test="${ todo.done eq 'N' }">
+						<td>${ todoList[i-1].sdate }~${ todoList[i-1].edate }</td>
+						<c:if test="${ todoList[i-1].done eq 'N' }">
 							<td><input
-								onchange="window.location.href='change?done=${ todo.done }&num=${ todo.num }'"
+								onchange="window.location.href='change?done=${ todoList[i-1].done }&num=${ todoList[i-1].num }'"
 								class="form-check-input" name="done" type="checkbox"></td>
 						</c:if>
-						<c:if test="${ todo.done eq 'Y' }">
+						<c:if test="${ todoList[i-1].done eq 'Y' }">
 							<td><input
-								onchange="window.location.href='change?done=${ todo.done }&num=${ todo.num }'"
+								onchange="window.location.href='change?done=${ todoList[i-1].done }&num=${ todoList[i-1].num }'"
 								class="form-check-input" name="done" type="checkbox"
 								checked="checked"></td>
 						</c:if>

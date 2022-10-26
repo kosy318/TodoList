@@ -21,8 +21,8 @@ public class TodoServiceImpl implements TodoService {
 	}
 
 	@Override
-	public Todo findByNum(String num) throws Exception {
-		return mapper.findByNum(num);
+	public Todo findByNum(HashMap<String, String> map) throws Exception {
+		return mapper.findByNum(map);
 	}
 
 	@Override
