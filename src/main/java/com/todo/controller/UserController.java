@@ -18,7 +18,7 @@ public class UserController {
 	
 	@GetMapping("login")
 	public String login(HttpSession session) {
-		if(session.getAttribute("id") != null) {
+		if(session.getAttribute("user") != null) {
 			return "redirect:/list";
 		}
 		
@@ -28,8 +28,8 @@ public class UserController {
 	@PostMapping("login")
 	public String login(HttpSession session, User user) {
 		if(service.login(user) != null) {
-			session.setAttribute("id", user.getId());
-			return "redirect:/list";
+			session.setAttribute("user", user);
+			return "list";
 		}
 		
 		return "login";
@@ -37,7 +37,7 @@ public class UserController {
 	
 	@GetMapping("logout")
 	public String logout(HttpSession session) {
-		session.setAttribute("id", null);
+		session.setAttribute("user", null);
 		
 		return "redirect:/";
 	}
@@ -45,6 +45,12 @@ public class UserController {
 	@GetMapping("signup")
 	public String signup() {
 		return "signup";
+	}
+	
+	@PostMapping("signup")
+	public String signup(User user) {
+		service.signup(user);
+		return "redirect:/";
 	}
 	
 }

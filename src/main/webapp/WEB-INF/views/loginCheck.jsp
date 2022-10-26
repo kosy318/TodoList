@@ -4,12 +4,12 @@
 <!DOCTYPE html>
 <html>
 <body>
-<c:if test="${empty id}">
+<c:if test="${empty user}">
 	<a href="login" class="btn btn-outline-info" role="button">로그인</a>
 </c:if>
 
-<c:if test="${!empty id}">
-	<span style="color: white">Welcome, <b>${ id }</b></span>&nbsp;&nbsp;&nbsp;
+<c:if test="${!empty user}">
+	<span style="color: white">Welcome, <b>${ user.id }</b></span>&nbsp;&nbsp;&nbsp;
 	<a href="logout" class="btn btn-outline-info" role="button">로그아웃</a>
 </c:if>
 

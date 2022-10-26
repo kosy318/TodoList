@@ -9,6 +9,8 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 
+import com.todo.vo.User;
+
 @Component
 public class AdminInterceptor implements HandlerInterceptor {
 
@@ -17,8 +19,8 @@ public class AdminInterceptor implements HandlerInterceptor {
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
 		HttpSession session = request.getSession();
-		String id = (String) session.getAttribute("id");
-		if (id != null && id.equals("admin")) {
+		User user = (User) session.getAttribute("user");
+		if (user != null && user.getId().equals("admin")) {
 			return true; // 컨트롤러로 전달됨
 		} else {
 			response.setCharacterEncoding("UTF-8");

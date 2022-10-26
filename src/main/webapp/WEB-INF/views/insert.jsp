@@ -23,7 +23,7 @@
 			<div class="row">
 				<div class="form-group text-left col-sm-4">
 					<label for="id">아이디:</label> <input type="text"
-						class="form-control" name="id">
+						class="form-control" name="id" value="${ user.id }" readonly>
 				</div>
 				<div class="form-group text-left col-sm-4">
 					<label for="sdate">시작 날짜 : </label> <input type="date"

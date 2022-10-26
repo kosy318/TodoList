@@ -4,6 +4,7 @@ import com.todo.vo.User;
 
 public interface UserMapper {
 	
-	String login(User user);
+	User login(User user);
+	void signup(User user);
 
 }

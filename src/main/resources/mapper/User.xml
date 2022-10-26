@@ -6,10 +6,15 @@
 <!-- 이 파일과 매핑되어 실행될 자바 매퍼 파일 정보 -->
 <mapper namespace="com.todo.mapper.UserMapper">
 
-	<select id="login" parameterType="User" resultType="string">
-		select id
+	<select id="login" parameterType="User" resultType="User">
+		select id, name, email
 		from user
 		where id=#{id} and pw=#{pw}
 	</select>
-		
+	
+	<insert id="signup" parameterType="User">
+		insert into user(name, id, pw, email)
+		values(#{name}, #{id}, #{pw}, #{email})
+	</insert>
+	
 </mapper>

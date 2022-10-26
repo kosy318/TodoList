@@ -1,5 +1,6 @@
 package com.todo.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.todo.service.TodoService;
 import com.todo.vo.Todo;
+import com.todo.vo.User;
 
 @Controller
 public class TodoController {
@@ -23,8 +25,9 @@ public class TodoController {
 	@GetMapping("list")
 	public String allList(Model model, HttpSession session) throws Exception {
 //		List<Todo> todoList = service.allList();
-		String id = (String) session.getAttribute("id");
-		List<Todo> todoList = service.findById(id);
+		User user = (User) session.getAttribute("user");
+		List<Todo> todoList = service.findById(user.getId());
+		if(todoList == null) todoList = new ArrayList<>(); 
 		model.addAttribute("todoList", todoList);
 		
 		return "list";
@@ -41,10 +44,10 @@ public class TodoController {
 	@GetMapping("searchAll")
 	public String searchAll(String search, String word, Model model, HttpSession session) throws Exception{
 		List<Todo> todoList = null;
-		String id = (String) session.getAttribute("id");
+		User user = (User) session.getAttribute("user");
 		HashMap<String, String> map = new HashMap<>();
 		map.put("word", word);
-		map.put("id", id);
+		map.put("id", user.getId());
 //		if(search.equals("id")) todoList = service.findById(word);
 		if(search.equals("date")) todoList = service.findByDate(map);
 		else if(search.equals("content")) todoList = service.findByContent(map);
