@@ -22,6 +22,11 @@
 		<h1>질문 no.${ qna.num }</h1>
 
 		<br>
+		<div class="container text-right mb-1">
+			<c:if test="${ user.id eq 'admin' }">
+				<button id="answer" onclick="show()" type="submit" class="btn btn-info">답 달기</button><br>
+			</c:if>
+		</div>
 		<table class="table table-bordered">
 			<TR>
 				<TH>TITLE</TH>
@@ -37,13 +42,42 @@
 				<TH>CONTENT</TH>
 				<TD COLSPAN=3>${ qna.content }</TD>
 			</TR>
+			<c:if test="${ qna.answer ne null }">
+			<TR style="height: 300px">
+				<TH>ANSWER</TH>
+				<TD COLSPAN=3>${ qna.answer }</TD>
+			</TR>
+			</c:if>
 		</TABLE>
+		<form class="row align-items-center" style="display: none" method="post" action="answer" id="answer-container">
+			<input type="hidden" name="num" value="${ qna.num }">
+			<div class="container text-right mb-2">
+				<div class="btn-group">
+					<button type="submit" class="btn btn-info">등록</button>
+					<div class="btn btn-info" onclick="hide()">취소</div>
+				</div>
+			</div>
+			<textarea class="form-control" rows="2" id="answer-content" name="answer"></textarea>
+		</form>
+		<div class="btn-group">
 		<c:if test="${ user.id eq qna.id }">
-			<a href="qna-modify?num=${ qna.num }">수정하기</a>&nbsp;&nbsp;
-		<a href="qna-delete?num=${ qna.num }">삭제하기</a>&nbsp;&nbsp;
+			<a type="button" class="btn btn-info" href="qna-modify?num=${ qna.num }">수정하기</a>
+			<a type="button" class="btn btn-info" href="qna-delete?num=${ qna.num }">삭제하기</a>
 		</c:if>
-		<a href="qna-list">공지 목록</a> <br> <br>
+		<a type="button" class="btn btn-info" href="qna-list">qna 목록</a>
+		</div>
+		 <br> <br>
 	</div>
+	<script>
+		function show(){
+			document.getElementById("answer-container").setAttribute("style", "display:");
+			document.getElementById("answer").setAttribute("style", "display: none");
+		}
+		function hide(){
+			document.getElementById("answer").setAttribute("style", "display:");
+			document.getElementById("answer-container").setAttribute("style", "display: none");
+		}
+	</script>
 </body>
 </html>
 

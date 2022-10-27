@@ -12,8 +12,10 @@
 	<div class="container text-center pt-5">
 		<h1>${ user.name }'s Todo List</h1>
 		<div class="text-right mb-2">
-			<a href="insert" class="btn btn-info" role="button">할 일 추가</a>&nbsp;&nbsp;
-			<a href="deleteAll" class="btn btn-info" role="button">전체 삭제</a>
+			<div class="btn-group">
+				<a type="button" href="insert" class="btn btn-info" role="button">할 일 추가</a>
+				<a type="button" href="deleteAll" class="btn btn-info" role="button">전체 삭제</a>
+			</div>
 		</div>
 		<form class="form-inline mb-2 float-right" action="searchAll" method="get">
 			<select class="form-control" name="search" id="search" onchange="selectChange()">

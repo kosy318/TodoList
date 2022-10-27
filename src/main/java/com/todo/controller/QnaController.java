@@ -72,4 +72,10 @@ public class QnaController {
 		return "redirect:/qna-list";
 	}
 	
+	@PostMapping("answer")
+	public String answer(String num, String answer) throws Exception{
+		service.answer(num);
+		return "qna-read?num="+num;
+	}
+	
 }

@@ -38,7 +38,7 @@
 					<label for="content">내 용:</label>
 					<textarea class="form-control" rows="2" id="content" name="content"></textarea>
 				</div>
-			<button type="submit" class="btn btn-primary">Submit</button>
+			<button type="submit" class="btn btn-info">Submit</button>
 		</form>
 		<a href="list">전체화면</a>
 		<br>
